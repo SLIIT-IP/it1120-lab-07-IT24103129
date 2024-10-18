@@ -1,1 +1,37 @@
-Upload the answer here
+import java.util.Scanner;
+
+public class IT24103129Lab7Q3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int i;
+        double DISCOUNT_RATE = 0.05;
+        
+        for ( i = 1; i <= 5; i++) {
+			
+			System.out.println("customer"+" "+ i);
+
+            System.out.print("Enter total bill amount: ");
+            double totalBill = scanner.nextDouble();
+            
+            System.out.print("Enter mode of payment (C/c for Cash, O/o for Other): ");
+            char paymentMode = scanner.next().charAt(0);
+            
+            switch (Character.toLowerCase(paymentMode)) {
+                case 'c':
+                    double discount = totalBill * DISCOUNT_RATE;
+                    double finalAmount = totalBill - discount;
+                    System.out.println("Discount is: " + discount);
+                    System.out.println("Amount to be paid: " + finalAmount);
+                    break;
+                case 'o':
+                    System.out.println("No discount applicable");
+					System.out.println("Amount to be paid: " + totalBill);
+                    break;
+                default:
+                    System.out.println("Payment Mode is Not Valid");
+            }
+            System.out.println();
+        }
+        scanner.close();
+    }
+}
